@@ -1,0 +1,33 @@
+behaviors:
+    default:
+        trainer_type: ppo
+        hyperparameters:
+            batch_size: 256 
+            buffer_size: 2560
+            learning_rate_schedule: linear
+            learning_rate: 3.0e-4
+        network_settings:
+            hidden_units: 256
+            normalize: false
+            num_layers: 3
+            vis_encode_type: simple
+            memory:
+                memory_size: 256
+                sequence_length: 256
+        max_steps: 10.0e5
+        time_horizon: 64    
+        summary_freq: 10000
+        reward_signals:
+            extrinsic:
+                strength: 1.0
+                gamma: 0.99
+    Robotarm:
+        trainer_type: ppo
+        hyperparameters:
+            batch_size: 256
+            buffer_size: 2560
+        network_settings:
+            hidden_units: 256
+            num_layers: 3
+        max_steps: 10.0e6
+        time_horizon: 128
